@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-button matTooltip="Coinatic" routerLink="/feed">Serverless Veeds</button>
+    <button mat-button matTooltip="Serveless-veeds" routerLink="/feed">Serverless Veeds</button>
     <span class="spacer"></span>
     <ng-container *ngIf="user$ | async as user; else loginIcon">
       <button
@@ -14,7 +14,7 @@
     </ng-container>
     <ng-template #loginIcon>
       <button (click)="login()" mat-icon-button matTooltip="Login">
-        <mat-icon aria-hidden="false" aria-label="Login"> login </mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Login"> Login </mat-icon>
       </button>
     </ng-template>
   </mat-toolbar-row>
