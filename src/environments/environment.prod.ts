@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  firebase: {
+  firebaseConfig: {
     apiKey: 'AIzaSyBUSyoLRqDvVEriqzoVB0GBiWzpzh8x1BY',
     authDomain: 'serverles-video.firebaseapp.com',
     projectId: 'serverles-video',
