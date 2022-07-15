@@ -1,0 +1,39 @@
+<form *ngIf="user" [formGroup]="videoForm" class="post-form">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <ngx-mat-file-input formControlName="video" placeholder="Basic outline placeholder">
+        </ngx-mat-file-input>
+        <mat-icon matSuffix>folder</mat-icon>
+        <mat-error *ngIf="videoForm.controls['video'].hasError('required')">
+          Please select a video
+        </mat-error>
+        <mat-error *ngIf="videoForm.controls['video'].hasError('video')">
+          That doesn't look like a video.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Describe your video</mat-label>
+        <textarea formControlName="description" matInput placeholder="Describe your errotic video">
+        </textarea>
+        <mat-error *ngIf="videoForm.controls['description'].hasError('required')">
+          You <strong>SHOULD</strong> describe your video
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-progress-bar *ngIf="submitted" [value]="percentage" mode="determinate"></mat-progress-bar>
+
+    <mat-card-actions>
+      <button
+        (click)="upload()"
+        [disabled]="videoForm.invalid || submitted"
+        color="primary"
+        mat-raised-button
+      >
+        Upload your video
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+

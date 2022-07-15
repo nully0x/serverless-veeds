@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button matTooltip="Coinatic" routerLink="/feed">Cornyporn</button>
+    <span class="spacer"></span>
+    <ng-container *ngIf="user$ | async as user; else loginIcon">
+      <button
+        mat-icon-button
+        matTooltip="Post an veeds or Gif for the world to see"
+        routerLink="/create"
+      >
+        <mat-icon aria-hidden="false" aria-label="Post veeds"> cloud_upload </mat-icon>
+      </button>
+      <app-profile-card (logoutClick)="logout()" [user]="user"></app-profile-card>
+    </ng-container>
+    <ng-template #loginIcon>
+      <button (click)="login()" mat-icon-button matTooltip="Login">
+        <mat-icon aria-hidden="false" aria-label="Login"> login </mat-icon>
+      </button>
+    </ng-template>
+  </mat-toolbar-row>
+</mat-toolbar>

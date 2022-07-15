@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cornyporn-62d07": {
+      "hosting": {
+        "KittyGramAuth": [
+          "cornyporn-62d07"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  max-width: 100%;
+}
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.placeholder-image {
+  height: 80vh;
+  object-fit: contain;
+  width: 100%;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}

@@ -1,0 +1,6 @@
+ <div *ngFor="let veed of veeds | async" class="vid-content">
+   <video width ="400" controls>
+      <source [src]="veed.downloadURL" type="video/mp4">
+   </video>
+ </div>
+
