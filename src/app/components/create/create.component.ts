@@ -93,7 +93,7 @@ export class CreateComponent implements OnInit, OnDestroy {
   // check if file is ok with requires extention
   private video(videoControl: AbstractControl): { [key: string]: boolean } | null {
     if (videoControl.value) {
-      const [cornyVideo] = videoControl.value.files;
+      const [veeds] = videoControl.value.files;
       return this.utilService.validateFile(veeds)
         ? null
         : {
