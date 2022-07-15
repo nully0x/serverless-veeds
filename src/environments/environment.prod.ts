@@ -1,13 +1,12 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'YOUR apiKey HERE',
-    authDomain: 'YOUR authDomain HERE',
-    databaseURL: 'YOUR databaseURL HERE',
-    projectId: 'YOUR projectId HERE',
-    storageBucket: 'YOUR storageBucket HERE',
-    messagingSenderId: 'YOUR messagingSenderId HERE',
-    appId: 'YOUR appId HERE',
-    measurementId: 'YOUR measurementId HERE',
+    apiKey: 'AIzaSyBUSyoLRqDvVEriqzoVB0GBiWzpzh8x1BY',
+    authDomain: 'serverles-video.firebaseapp.com',
+    projectId: 'serverles-video',
+    storageBucket: 'serverles-video.appspot.com',
+    messagingSenderId: '171219031573',
+    appId: '1:171219031573:web:9569198119c3c0c2ba601c',
+    measurementId: 'G-D0DR76MW8W',
   },
 };

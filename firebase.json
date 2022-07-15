@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "cornyporn",
-      "public": "dist/cornyporn",
+      "target": "servelessVeeds",
+      "public": "dist/servelessVeeds",
       "ignore": ["**/.*"],
       "headers": [
         {
@@ -46,4 +46,3 @@
     }
   ]
 }
-
