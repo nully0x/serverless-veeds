@@ -14,7 +14,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Describe your video</mat-label>
-        <textarea formControlName="description" matInput placeholder="Describe your errotic video">
+        <textarea formControlName="description" matInput placeholder="Describe your video">
         </textarea>
         <mat-error *ngIf="videoForm.controls['description'].hasError('required')">
           You <strong>SHOULD</strong> describe your video
@@ -36,4 +36,3 @@
     </mat-card-actions>
   </mat-card>
 </form>
-

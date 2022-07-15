@@ -9,22 +9,21 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { finalize, takeUntil, tap } from 'rxjs/operators';
-import {FEED} from '../../consts/routes.const'
+import { FEED } from '../../consts/routes.const';
 import { MEDIA_STORAGE_PATH } from 'src/app/consts/storage.const';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  styleUrls: ['./create.component.scss'],
 })
-export class CreateComponent implements OnInit, OnDestroy{
-  
+export class CreateComponent implements OnInit, OnDestroy {
   destroy$: Subject<null> = new Subject();
   fileToUpload: File;
   videoForm: FormGroup;
-  cornyVideoLoad: string | ArrayBuffer;
+  veedLoads: string | ArrayBuffer;
   submitted = false;
-  task: AngularFireUploadTask; 
+  task: AngularFireUploadTask;
   percentage: Observable<any>;
   snapshot: Observable<any>;
   user: firebase.User;
@@ -41,8 +40,6 @@ export class CreateComponent implements OnInit, OnDestroy{
     private readonly afs: AngularFirestore,
   ) {}
 
-
-
   ngOnInit(): void {
     this.videoForm = this.formBuilder.group({
       video: [null, [Validators.required, this.video.bind(this)]],
@@ -56,19 +53,19 @@ export class CreateComponent implements OnInit, OnDestroy{
         this.handleFileChange(newValue.files);
       });
   }
-// handle file upload changes
-  handleFileChange([cornyVideo]) {
-    this.fileToUpload = cornyVideo;
+  // handle file upload changes
+  handleFileChange([veeds]) {
+    this.fileToUpload = veeds;
     const reader = new FileReader();
-    reader.onload = (loadEvent) => (this.cornyVideoLoad = loadEvent.target.result)
-    reader.readAsDataURL(cornyVideo);
+    reader.onload = (loadEvent) => (this.veedLoads = loadEvent.target.result);
+    reader.readAsDataURL(veeds);
   }
 
   // handles upload task
   upload() {
     this.submitted = true;
-    const {name} = this.fileToUpload
-   const path = `${MEDIA_STORAGE_PATH}/${this.user.email}/media/${name}`;
+    const { name } = this.fileToUpload;
+    const path = `${MEDIA_STORAGE_PATH}/${this.user.email}/media/${name}`;
 
     // Reference to storage bucket
     const ref = this.storage.ref(path);
@@ -79,23 +76,25 @@ export class CreateComponent implements OnInit, OnDestroy{
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
 
-    this.task.snapshotChanges().pipe(tap(), finalize( async () =>  {
-        this.downloadURL = await ref.getDownloadURL().toPromise();
-         this.afs.collection('veeds').add( { downloadURL: this.downloadURL, path });
-         this.router.navigate([`${FEED}`])
-      console.log(this.downloadURL);
-
-      }),
-    ).subscribe();
-  
+    this.task
+      .snapshotChanges()
+      .pipe(
+        tap(),
+        finalize(async () => {
+          this.downloadURL = await ref.getDownloadURL().toPromise();
+          this.afs.collection('veeds').add({ downloadURL: this.downloadURL, path });
+          this.router.navigate([`${FEED}`]);
+          console.log(this.downloadURL);
+        }),
+      )
+      .subscribe();
   }
-
 
   // check if file is ok with requires extention
   private video(videoControl: AbstractControl): { [key: string]: boolean } | null {
     if (videoControl.value) {
       const [cornyVideo] = videoControl.value.files;
-      return this.utilService.validateFile(cornyVideo)
+      return this.utilService.validateFile(veeds)
         ? null
         : {
             video: true,
