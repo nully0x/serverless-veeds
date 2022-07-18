@@ -5,3 +5,9 @@
 - Deployed with Vercel
 
 ## Not so much on the frontend
+
+## Todo
+Veeds deleting by owner of a veeds
+Immplement Categories
+
+
