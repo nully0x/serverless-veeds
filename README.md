@@ -8,7 +8,8 @@
 ## Not so much on the frontend
 
 ## Todo
-Veeds deleting by owner of a veeds
-Immplement Categories
+Ability to delete Veeds
+Implement Categories
+
 
 
