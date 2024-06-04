@@ -4,6 +4,7 @@
 ## Settup
 - Settup with angular and firebase (auth, database and storage)
 - Deployed with Vercel
+- This is a DEMO
 
 ## Not so much on the frontend
 
